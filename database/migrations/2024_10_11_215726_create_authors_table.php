@@ -16,12 +16,12 @@ class CreateAuthorsTable extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('descriotion')->nullable();
-            $table->date('DOB')->nullable();
+            $table->string('description')->nullable();
+            $table->date('DOB');
             $table->date('DOD')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('phoneNumber')->nullable();
-            $table->string('email')->nullable();
+            $table->string('nationality');
+            $table->string('phoneNumber')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('job')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

@@ -1,10 +1,12 @@
 <?php
 
-use App\Admin\Controllers\AuthorController;
 use Illuminate\Routing\Router;
 use App\Admin\Controllers\CategoryController;
-use App\Admin\Controllers\AuthController;
+use App\Admin\Controllers\AuthorController;
 use App\Admin\Controllers\UserController;
+use App\Admin\Controllers\StoryController;
+use App\Admin\Controllers\PublishingHomeController;
+
 Admin::routes();
 
 Route::group([
@@ -17,5 +19,7 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('categories', CategoryController::class);
     $router->resource('authors', AuthorController::class);
-$router->resource('users', UserController::class);
+    $router->resource('users', UserController::class);
+    $router->resource('publishing-homes', PublishingHomeController::class);
+    $router->resource('stories', StoryController::class);
 });
