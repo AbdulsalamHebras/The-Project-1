@@ -15,23 +15,21 @@
                     @endforeach
                     <h1>Trending Stories</h1>
                     @foreach ($stories as $story)
-                    <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
-                    width="300px" style="display: inline;margin:10px">
-                        {{-- <a href="{{ route('story.show', $story->id) }}">
+
+                        <a href="{{ route('story.show', $story->id) }}">
                             <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px" width="300px"
                                 style="display: inline;margin:10px">
-                        </a> --}}
+                        </a>
                     @endforeach
                     <h1>Top Adventure Stories</h1>
                     @if ($adventureStories && $adventureStories->stories)
                         <ul>
                             @foreach ($adventureStories->stories as $story)
-                            <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
-                            width="300px" style="display: inline;margin:10px">
-                                {{-- <a href="{{ route('story.show', $story->id) }}">
+
+                                <a href="{{ route('story.show', $story->id) }}">
                                     <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
                                         width="300px" style="display: inline;margin:10px">
-                                </a> --}}
+                                </a>
                             @endforeach
                         </ul>
                     @endif
@@ -40,12 +38,11 @@
                     @if ($historyStories && $historyStories->stories)
                         <ul>
                             @foreach ($historyStories->stories as $story)
-                            <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
-                            width="300px" style="display: inline;margin:10px">
-                                {{-- <a href="{{ route('story.show', $story->id) }}">
+                            
+                                <a href="{{ route('story.show', $story->id) }}">
                                     <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
                                         width="300px" style="display: inline;margin:10px">
-                                </a> --}}
+                                </a>
                             @endforeach
                         </ul>
                     @endif
