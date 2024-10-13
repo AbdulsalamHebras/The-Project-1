@@ -21,8 +21,6 @@ class CreateStoriesTable extends Migration
             $table->string('image');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('language')->nullable();
-            $table->string('authors');
-            $table->string('publishing_homes');
             $table->integer('parts')->nullable();
             $table->integer('deposit_number')->nullable();
             $table->integer('edition_number')->nullable();
