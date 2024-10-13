@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: UnicaOne;
+    src: url('./assets/fonts/UnicaOne-Regular.ttf');
+}
+@font-face {
+    font-family: Syne-VariableFont_wght;
+    src: url('./assets/fonts/Syne-VariableFont_wght.ttf');
+}
+.unica-font {
+    font-family: UnicaOne !important;
+}
+.syne-font {
+    font-family: Syne-VariableFont_wght !important ;
+}
