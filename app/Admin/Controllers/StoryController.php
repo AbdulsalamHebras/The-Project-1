@@ -34,8 +34,7 @@ class StoryController extends AdminController
         $grid->column('image')->image();
         $grid->column('category_id', __('Category id'));
         $grid->column('language', __('Language'));
-        $grid->column('authors', __('Authors'));
-        $grid->column('publishing_homes', __('Publishing homes'));
+
         $grid->column('parts', __('Parts'));
         $grid->column('deposit_number', __('Deposit number'));
         $grid->column('edition_number', __('Edition number'));
@@ -66,8 +65,7 @@ class StoryController extends AdminController
         $show->field('image')->image();
         $show->field('category_id', __('Category id'));
         $show->field('language', __('Language'));
-        $show->field('authors', __('Authors'));
-        $show->field('publishing_homes', __('Publishing homes'));
+
         $show->field('parts', __('Parts'));
         $show->field('deposit_number', __('Deposit number'));
         $show->field('edition_number', __('Edition number'));
@@ -183,16 +181,13 @@ class StoryController extends AdminController
         $form->date('writing_date', __('Writing date'))->default(date('Y-m-d'))->rules('required|date|before_or_equal:Today');
         $form->image('image', __('Image'))->rules('nullable|mimes:png,jpg|max:5120');
 
-        // Dropdown list for categories
         $form->select('category_id', __('Category'))->options($categories)->rules('required');
 
-        // Dropdown for languages
         $form->select('language', __('Language'))->options($languages)->rules('required|string');
 
-        // Authors dropdown (multiple select for many-to-many relationship)
         $form->multipleSelect('authors', __('Authors'))->options($authors)->rules('required');
 
-        $form->multipleSelect('publishing_homes', __('Publishing homes'))->options($publishingHomes)->rules('required');
+        $form->multipleSelect('publishingHomes', __('Publishing homes'))->options($publishingHomes)->rules('required');
 
         $form->number('parts', __('Parts'))->rules('numeric|required');
         $form->number('deposit_number', __('Deposit number'))->default($nextDepositNumber)->attribute('readonly', true)->rules('numeric|required');
