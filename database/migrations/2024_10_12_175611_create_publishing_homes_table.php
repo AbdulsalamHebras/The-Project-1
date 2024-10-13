@@ -14,7 +14,7 @@ class CreatePublishingHomesTable extends Migration
     public function up()
     {
         Schema::create('publishing_homes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name')->unique();
             $table->string('country')->nullable();
             $table->integer('phoneNumber')->unique()->nullable();

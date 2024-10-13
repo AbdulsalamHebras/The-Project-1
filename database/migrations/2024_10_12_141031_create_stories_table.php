@@ -14,12 +14,12 @@ class CreateStoriesTable extends Migration
     public function up()
     {
         Schema::create('stories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name')->unique();
             $table->text('summary')->nullable();
             $table->date('writing_date');
             $table->string('image');
-            $table->integer('category_id')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('language')->nullable();
             $table->string('authors');
             $table->string('publishing_homes');
