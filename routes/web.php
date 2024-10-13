@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
+use App\Models\Story;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,19 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $categories = Category::all();
+    $stories = Story::latest()->limit(5)->get();
+    $adventureStories = Category::with([
+        'stories' => function ($query) {
+            $query->select('id', 'image', 'category_id')->limit(5);
+        }
+    ])->where('name', 'Adventure')->first();
+    $historyStories = Category::with([
+        'stories' => function ($query) {
+            $query->select('id', 'image', 'category_id')->limit(5);
+        }
+    ])->where('name', 'History')->first();
+    return view('dashboard', compact('categories', 'stories', 'adventureStories', 'historyStories'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
